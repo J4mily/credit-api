@@ -39,18 +39,11 @@ Para entender e testar este projeto, siga os passos abaixo:
 * Java 
 * Spring Boot 
 * Spring Data JPA 
-* H2 Database (ou outro banco de dados) ️
+* H2 Database
 * Swagger/OpenAPI 
 * JUnit e Mockito 
 * Lombok ️
 
-##  Observações importantes 
-
-* Certifique-se de que o Java JDK 17 (ou superior) e Maven/Gradle estão instalados e configurados corretamente. 
-* Utilize as boas práticas de desenvolvimento de APIs RESTful. 
-* Implemente testes unitários e de integração para garantir a qualidade do código. 
-* Documente seu código para facilitar o entendimento. 
 
 ## Informações adicionais 
-
 Este projeto é baseado e cumpre os requisitos que foram solicitados no repositório [https://github.com/Neurolake/challenge-java-developer](https://github.com/Neurolake/challenge-java-developer). 
