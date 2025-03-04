@@ -2,7 +2,8 @@
 
 ##  Olá!  Bem-vindo(a) ao meu projeto de avaliação para a Neurotech! 
 
-Este projeto foi desenvolvido com o objetivo de criar uma API RESTful usando Java ☕ e Spring Boot , capaz de aplicar diferentes modalidades de crédito para clientes PF , seguindo critérios específicos. 
+Este projeto foi desenvolvido com o objetivo de criar uma API RESTful usando Java e Spring Boot , baseado e cumprindo os requisitos que foram solicitados no repositório [https://github.com/Neurolake/challenge-java-developer](https://github.com/Neurolake/challenge-java-developer). 
+
 
 ## ️ Como usar este projeto? ️
 
@@ -43,7 +44,3 @@ Para entender e testar este projeto, siga os passos abaixo:
 * Swagger/OpenAPI 
 * JUnit e Mockito 
 * Lombok ️
-
-
-## Informações adicionais 
-Este projeto é baseado e cumpre os requisitos que foram solicitados no repositório [https://github.com/Neurolake/challenge-java-developer](https://github.com/Neurolake/challenge-java-developer). 
