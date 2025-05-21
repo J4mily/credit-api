@@ -81,7 +81,43 @@ public class ClienteController {
         List<ClienteDTO> eligibleClients = service.findEligibleClients();
         return ResponseEntity.ok(eligibleClients);
     }
+    @PutMapping("/{id}")
+    @Operation(summary = "Atualizar um cliente pelo ID", description = "Atualiza os dados de um cliente existente pelo ID",
+            tags = {"Clientes"}, responses = {
+            @ApiResponse(description = "Success", responseCode = "200",
+                    content = @Content(schema = @Schema(implementation = ClienteDTO.class))),
+            @ApiResponse(description = "Not Found", responseCode = "404"),
+            @ApiResponse(description = "Bad Request", responseCode = "400"),
+            @ApiResponse(description = "Internal Error", responseCode = "500")
+    })
+    public ResponseEntity<?> updateClient(@PathVariable Long id, @Valid @RequestBody ClienteDTO clienteDTO) {
+        try {
+            ClienteDTO updatedClient = service.update(id, clienteDTO);
+            return ResponseEntity.ok(updatedClient);
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.notFound().build();
+        } catch (Exception e) {
+            return ResponseEntity.status(500).body("Erro ao atualizar cliente: " + e.getMessage());
+        }
+    }
 
+    @DeleteMapping("/{id}")
+    @Operation(summary = "Deletar um cliente pelo ID", description = "Remove um cliente do sistema pelo ID",
+            tags = {"Clientes"}, responses = {
+            @ApiResponse(description = "No Content", responseCode = "204"),
+            @ApiResponse(description = "Not Found", responseCode = "404"),
+            @ApiResponse(description = "Internal Error", responseCode = "500")
+    })
+    public ResponseEntity<?> deleteClient(@PathVariable Long id) {
+        try {
+            service.delete(id);
+            return ResponseEntity.noContent().build();
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.notFound().build();
+        } catch (Exception e) {
+            return ResponseEntity.status(500).body("Erro ao deletar cliente: " + e.getMessage());
+        }
+    }
 
     @GetMapping("/{id}/avaliar-credito")
     @Operation(summary = "Avaliar tipo de crédito disponível para um cliente", description = "Retorna o tipo de crédito que o cliente pode obter.",

@@ -69,6 +69,27 @@ public class ClienteService {
 
         return TipoCredito.NAO_ELEGIVEL;
     }
+    public ClienteDTO update(Long id, ClienteDTO dto) {
+        Optional<Cliente> clienteOpt = repository.findById(id);
+        if (clienteOpt.isEmpty()) {
+            throw new IllegalArgumentException("Cliente não encontrado!");
+        }
+
+        Cliente clienteExistente = clienteOpt.get();
+        clienteExistente.setName(dto.getName());
+        clienteExistente.setAge(dto.getAge());
+        clienteExistente.setIncome(dto.getIncome());
+
+        Cliente clienteAtualizado = repository.save(clienteExistente);
+        return ConverterDto.toDto(clienteAtualizado);
+    }
+
+    public void delete(Long id) {
+        if (!repository.existsById(id)) {
+            throw new IllegalArgumentException("Cliente não encontrado!");
+        }
+        repository.deleteById(id);
+    }
 
     public boolean podeFinanciarHatch(ClienteDTO cliente) {
         return cliente.getIncome() >= 5000.00 && cliente.getIncome() <= 15000.00;
