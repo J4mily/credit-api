@@ -15,9 +15,11 @@ public class ConverterDto {
     // Conversão Model -> DTO
     public static ClienteDTO toDto(Cliente model) {
         ClienteDTO dto = new ClienteDTO();
+        dto.setId(model.getId());
         dto.setName(model.getName());
         dto.setAge(model.getAge());
         dto.setIncome(model.getIncome());
         return dto;
     }
+
 }
