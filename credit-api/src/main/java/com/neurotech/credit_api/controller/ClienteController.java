@@ -71,7 +71,7 @@ public class ClienteController {
 
     @GetMapping("/eligible")
     @Operation(summary = "Listar clientes elegíveis", description = "Recupera uma lista de clientes elegíveis",
-            tags = {"Clientes"}, responses = {
+            tags = {"Clientes Elegíveis - EXTRA"}, responses = {
             @ApiResponse(description = "Success", responseCode = "200",
                     content = @Content(mediaType = "application/json",
                             array = @ArraySchema(schema = @Schema(implementation = ClienteDTO.class)))),
